@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.MiddleWare;
 using Application.Activities;
 using Application.Core;
 using AutoMapper.Configuration;
@@ -15,9 +16,12 @@ builder.Services.AddApplicationServiices(builder.Configuration);
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
