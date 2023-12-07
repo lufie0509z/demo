@@ -12,7 +12,7 @@ namespace API.Extensions
         public static IServiceCollection AddApplicationServiices(this IServiceCollection services,
             IConfiguration config)
         {
-                        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddDbContext<DataContext>(opt =>
