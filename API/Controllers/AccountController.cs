@@ -34,6 +34,7 @@ namespace API.Controllers
 
             if (result)
             {
+       
                 return new UserDto
                 {
                     DisplayName = user.DisplayName,
