@@ -1,5 +1,6 @@
 using Application.Core;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -42,13 +43,12 @@ namespace Application.Activities
                 // }
 
                 var activities = await _context.Activities
-                    .Include(a => a.Attendees)
-                    .ThenInclude(u => u.AppUser)
+                    .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
                     .ToListAsync(token);
 
-                var activitiesToReturn = _mapper.Map<List<ActivityDto>>(activities);
+                // var activitiesToReturn = _mapper.Map<List<ActivityDto>>(activities);
 
-                return Result<List<ActivityDto>>.Success(activitiesToReturn);
+                return Result<List<ActivityDto>>.Success(activities);
             }
         }
     }
