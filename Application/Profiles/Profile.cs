@@ -9,3 +9,4 @@ namespace Application.Profiles
         public string Image { get; set; }
     }
 }
+
