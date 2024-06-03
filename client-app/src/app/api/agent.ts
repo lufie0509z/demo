@@ -84,6 +84,10 @@ const Account = {
     register: (user: UserFormValues) => requests.post<User>('/account/register', user),
 }
 
+// const Profiles = {
+//     get: (username: string) => 
+// }
+
 const agent = {
     Activities, 
     Account,
